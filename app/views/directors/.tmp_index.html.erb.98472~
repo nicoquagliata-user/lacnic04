@@ -1,0 +1,48 @@
+<h1>Listing directors</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Country</th>
+    <th>Term start</th>
+    <th>Term end</th>
+	<th>Position</th>
+	<th>Active?</th>
+  </tr>
+
+<% for director in @directors %>
+	<%
+		time_before = director.term_start.to_time <=> Time.now
+		if director.term_end?
+			
+		time_after = director.term_end.to_time <=> Time.now
+		else
+		time_after = time_before
+		end
+	%>
+	
+  <tr>
+    <td><%=h director.name %></td>
+    <td><%=h director.country %></td>
+    <td><%=h director.term_start %></td>
+    <td><%=h director.term_end %></td>
+	<td><% for position in director.position %><%=h position.name %><% end %></td>
+	<td>
+		<% if time_before <= 0 and time_after >= 0 %>
+			active
+		<% else %>
+			not active
+		<% end %>
+	
+	</td>
+    <td><%= link_to 'Show', director %></td>
+    <td><%= link_to 'Edit', edit_director_path(director) %></td>
+    <td><%= link_to 'Destroy', director, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+	
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New director', new_director_path %>

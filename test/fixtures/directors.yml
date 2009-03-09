@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  country: MyString
+  term_start: 2008-11-26
+  term_end: 2008-11-26
+
+two:
+  name: MyString
+  country: MyString
+  term_start: 2008-11-26
+  term_end: 2008-11-26

@@ -1,0 +1,29 @@
+<h1>Listing pages</h1>
+
+<table>
+  <tr>
+    <th width="100">Name</th>
+    <th width="250">Title</th>
+    <th width="500">Body</th>
+	<!--<th>Admin?</th>-->
+  </tr>
+
+<% for page in @pages %>
+	<% if !page.admin? %>
+		<tr>
+			<td><%=h page.name %></td>
+			<td><%=h page.title %></td>
+			<td><%=h page.body[0..150] %>...</td>
+			<!--<td><%= page.admin? ? "TRUE" : "FALSE" %></td>-->
+			<td><%= link_to 'Show', page %></td>
+			<td><%= link_to 'Edit', edit_page_path(page) %></td>
+			<td><%= link_to 'Destroy', page, :confirm => 'Are you sure?', :method => :delete %></td>
+		</tr>
+	<% end %>
+  
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New page', new_page_path %>

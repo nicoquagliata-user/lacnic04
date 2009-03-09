@@ -1,0 +1,26 @@
+<p>
+	<%= f.label :name %><br />
+	<%= f.text_field :name %>
+</p>
+<p>
+	<%= f.label :title %><br />
+	<%= f.text_field :title %>
+</p>
+<p>
+	<%= f.label :body %><br />
+		<% use_tinymce -%>
+		<%= text_area(:page, 'body', :cols => 40, :rows => 15, :class => "mce-editor") %>
+</p>
+<p>
+	<b>Admin?</b><br/>
+	<%= f.check_box :admin %>
+</p>
+<p>
+	<%= f.collection_select :parent_id, Page.find(:all), :id, :title, :include_blank => true %>
+</p>
+<p><b>Position</b>
+	<%= f.text_field :position, :size => 3 %>
+</p>
+<p><b>NavLabel</b>
+	<%= f.text_field :navlabel %>
+</p>

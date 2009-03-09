@@ -1,0 +1,23 @@
+<h1>Listing directors</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Country</th>
+    <th>Term start</th>
+    <th>Term end</th>
+  </tr>
+
+<% for director in @directors %>
+  <tr>
+    <td><%=h director.name %></td>
+    <td><%=h director.country %></td>
+    <td><%=h director.term_start %></td>
+    <td><%=h director.term_end %></td>
+    </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New director', new_director_path %>

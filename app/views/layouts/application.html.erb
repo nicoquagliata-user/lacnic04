@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title><%= @pagetitle || (@page && @page.title) || "LACNIC" %></title>
+  <%= stylesheet_link_tag 'scaffold', 'lacnic2009' %>
+  <%= javascript_include_tag "prototype" %>
+  <%= yield :tinymce %>
+  <%= javascript_include_tag "scriptaculous" %> 
+  <%= javascript_include_tag "effects" %> 
+  <%= javascript_include_tag "controls" %>
+  <%= yield :tinymce_init %> 
+</head>
+<body>
+<div id="page-layout">
+	<div id="header">
+		<div id="logo">
+			<h1>LACNIC</h1>
+		</div>
+		<div id="mainmenu">
+			<ul>
+				<% @tabs.each do |page| -%>
+				<li><%= link_to page.navlabel, view_page_path(page.name)%></li>
+				<% end -%>
+			</ul>
+		</div>
+		<div id="topmenu">
+			<ul>
+				<li>
+				<% if logged_in? %>
+					<%= link_to 'Log out', logout_path %>
+				<% else %>
+					<%= link_to 'Log in', login_path %>
+				<% end %>
+				</li>
+				
+				<% @toptabs.each do |page| %>
+				<li><%= link_to page.title, view_page_path(page.name)%></li>
+				<% end %>
+				
+			</ul>
+		</div>
+	</div>
+	<p style="color: green"><%= flash[:notice] %></p>
+	<div id="content">
+		<%= yield  %>
+	</div>
+</div>
+
+
+
+
+</body>
+</html>

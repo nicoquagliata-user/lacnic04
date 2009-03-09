@@ -1,0 +1,19 @@
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :country %><br />
+    <%= f.country_select :country %>
+  </p>
+  <p>
+    <%= f.label :term_start %><br />
+    <%= f.date_select :term_start %>
+  </p>
+  <p>
+    <%= f.label :term_end %><br />
+    <%= f.date_select :term_end, :include_blank => true %>
+  </p>
+	<p>Position:<br />
+		<%= f.collection_select :position_ids, Position.find(:all), :id, :name, {}, :multiple => false %>
+	</p>

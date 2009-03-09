@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @director.name %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%=h @director.country %>
+</p>
+
+<p>
+  <b>Term start:</b>
+  <%=h @director.term_start %>
+</p>
+
+<p>
+  <b>Term end:</b>
+  <%=h @director.term_end %>
+</p>
+
+
+<%= link_to 'Edit', edit_director_path(@director) %> |
+<%= link_to 'Back', directors_path %>
